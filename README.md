@@ -38,8 +38,11 @@ Optional<CardsDto> cards = pkmnTcg.cards()
                                     .pageSize(10)
                                     .findAll();
 ```
+
 <h4>Filtering requests</h4>
+
 You can filter cards with where() when using the cards builder like in the examples below:
+
 ```java
 //Search for cards from the Celebrations set where HP is equal to 50
 Optional<CardsDto> cards = pkmnTcg.cards()
