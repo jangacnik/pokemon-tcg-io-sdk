@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class QueryBuilder {
+abstract class QueryBuilder {
   private final List<String> qParams;
   private final List<String> selectParams;
   private String pageParam;
@@ -51,7 +51,7 @@ public abstract class QueryBuilder {
   protected String prepareQuery() {
     List<String> parameters = new ArrayList<>();
     if (qParams.isEmpty() && selectParams.isEmpty() && pageParam == null && pageSizeParam == null) {
-      return null;
+      return "";
     }
     if (pageParam != null) {
       parameters.add("page=" + pageParam);
