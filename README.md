@@ -7,6 +7,7 @@ TODO
 
 <h2>Usage</h2>
 First you need to initialize the PkmnTcg class and provide your API key.
+
 ```java
 PkmnTcg pkmnTcg = new PkmnTcg("API_KEY");
 ```
@@ -14,18 +15,23 @@ PkmnTcg pkmnTcg = new PkmnTcg("API_KEY");
 <h3>Cards</h3>
 
 <h4>Find card by id</h4>
+
 ```java
 Optional<CardDto> card = pkmnTcg.getCardById("cel25-25");
 ```
 
 <h4>Query all cards</h4>
+
 To get all cards from the API you can use the findAll() method.
 Note that the results are Paginated and the maximum page size is 250.
+
 ```java
 Optional<CardsDto> cards = pkmnTcg.cards()
                                   .findAll();
 ```
+
 You can set the page and page size of a request like below:
+
 ```java
 Optional<CardsDto> cards = pkmnTcg.cards()
                                     .page(2)
@@ -41,7 +47,9 @@ Optional<CardsDto> cards = pkmnTcg.cards()
           .where(CardQueryOptions.HP, "50")
           .findAll();
 ```
+
 You can also write your own queries or use the QueryHelper methods:
+
 ```java
 Optional<CardsDto> cards = pkmnTcg.cards()
     .where("set.name:Celebrations")
@@ -53,14 +61,19 @@ Optional<CardsDto> cards = pkmnTcg.cards()
 <h3>Sets</h3>
 
 <h4>Find set by id</h4>
+
 ```java
 Optional<SetDto> setDto = pkmnTcg.getSetById("cel25");
 ```
+
 <h4>Query all sets</h4>
+
 ```java
     Optional<SetsDto> sets = pkmnTcg.sets().findAll();
 ```
+
 You can set the page and page size of a request like below:
+
 ```java
 Optional<SetsDto> sets = pkmnTcg.sets()
                                 .page(2)
@@ -69,6 +82,7 @@ Optional<SetsDto> sets = pkmnTcg.sets()
 ```
 
 Similar to cards you can filter sets with where() with your own filters or using the built-in query options:
+
 ```java
 Optional<SetsDto> cards = pkmnTcg.sets()
           .where("name:Celebrations")
@@ -78,6 +92,7 @@ Optional<SetsDto> cards = pkmnTcg.sets()
 
 <h3>Available types and rarities</h3>
 To get a list of available values:
+
 ```java
     //Get a list of all available rarities for cards
     Optional<GenericDto> rarities = pkmnTcg.getRarities();
