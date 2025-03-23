@@ -18,6 +18,12 @@ public class Legalities {
     // default constructor
   }
 
+  public Legalities(Legality standard, Legality expanded, Legality unlimited) {
+    this.standard = standard;
+    this.expanded = expanded;
+    this.unlimited = unlimited;
+  }
+
   public Legality getStandard() {
     return standard;
   }

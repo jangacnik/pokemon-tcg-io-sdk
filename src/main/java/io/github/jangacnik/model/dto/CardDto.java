@@ -1,16 +1,16 @@
 package io.github.jangacnik.model.dto;
 
-import io.github.jangacnik.model.Card;
+import io.github.jangacnik.model.PkmnCard;
 
-public class CardDto extends GenericResponse{
+public class CardDto extends GenericResponse {
 
-  public Card getData() {
+  private PkmnCard data;
+
+  public PkmnCard getData() {
     return data;
   }
 
-  public void setData(Card data) {
+  public void setData(PkmnCard data) {
     this.data = data;
   }
-
-  private Card data;
 }

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 abstract class QueryBuilder {
+
   private final List<String> qParams;
   private final List<String> selectParams;
   private String pageParam;

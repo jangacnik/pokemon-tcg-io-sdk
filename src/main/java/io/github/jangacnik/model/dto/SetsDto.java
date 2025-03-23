@@ -4,6 +4,7 @@ import io.github.jangacnik.model.Set;
 import java.util.List;
 
 public class SetsDto extends GenericResponse {
+
   private List<Set> data;
 
   public List<Set> getData() {

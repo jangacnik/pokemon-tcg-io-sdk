@@ -15,6 +15,12 @@ public class CardMarket {
     // default constructor
   }
 
+  public CardMarket(String url, String updatedAt, CardMarketPrices prices) {
+    this.url = url;
+    this.updatedAt = updatedAt;
+    this.prices = prices;
+  }
+
   public String getUrl() {
     return url;
   }

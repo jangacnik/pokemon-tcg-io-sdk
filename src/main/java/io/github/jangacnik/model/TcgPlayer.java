@@ -15,6 +15,12 @@ public class TcgPlayer {
     // default constructor
   }
 
+  public TcgPlayer(String url, String updatedAt, TcgPlayerPrices prices) {
+    this.url = url;
+    this.updatedAt = updatedAt;
+    this.prices = prices;
+  }
+
   public String getUrl() {
     return url;
   }

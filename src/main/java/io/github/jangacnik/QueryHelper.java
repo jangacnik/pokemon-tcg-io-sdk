@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QueryHelper {
+
   private static final String OR = " OR ";
   private static final String TO = " TO ";
 
   private QueryHelper() {
   }
+
   public static String anyOf(String field, String... value) {
     List<String> conditions = new ArrayList<>();
     for (String s : value) {
@@ -19,7 +21,7 @@ public class QueryHelper {
   }
 
   public static String phrase(String field, String phrase) {
-    return field + ":%22" +phrase+ "%22";
+    return field + ":%22" + phrase + "%22";
   }
 
   public static String exclusiveRange(String field, int from, int to) {

@@ -31,6 +31,21 @@ public class Set {
     // default constructor
   }
 
+  public Set(String id, String name, String series, Integer printedTotal, Integer total,
+      Legalities legalities, String ptcgoCode, String releaseDate, String updatedAt,
+      SetImages images) {
+    this.id = id;
+    this.name = name;
+    this.series = series;
+    this.printedTotal = printedTotal;
+    this.total = total;
+    this.legalities = legalities;
+    this.ptcgoCode = ptcgoCode;
+    this.releaseDate = releaseDate;
+    this.updatedAt = updatedAt;
+    this.images = images;
+  }
+
   public String getId() {
     return id;
   }

@@ -13,6 +13,11 @@ public class SetImages {
     // default constructor
   }
 
+  public SetImages(String symbol, String logo) {
+    this.symbol = symbol;
+    this.logo = logo;
+  }
+
   public String getSymbol() {
     return symbol;
   }

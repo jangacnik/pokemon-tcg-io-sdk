@@ -15,6 +15,12 @@ public class Ability {
     // default constructor
   }
 
+  public Ability(String name, String text, String type) {
+    this.name = name;
+    this.text = text;
+    this.type = type;
+  }
+
   public String getName() {
     return name;
   }

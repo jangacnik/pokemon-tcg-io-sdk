@@ -14,6 +14,7 @@ import java.net.http.HttpResponse;
 import java.util.Optional;
 
 public class PkmnTcg {
+
   private static final String SUB_PATH_CARDS = "cards";
   private static final String SUB_PATH_SETS = "sets";
   private static final String SUB_PATH_TYPES = "types";
@@ -26,6 +27,13 @@ public class PkmnTcg {
     ApiCaller.apiKey = apiKey;
   }
 
+  public PkmnTcg() {
+  }
+
+  public static void setApiKey(String apiKey) {
+    ApiCaller.apiKey = apiKey;
+  }
+
   /**
    * Factory method for the {@link CardsBuilder} class.
    *
@@ -34,6 +42,7 @@ public class PkmnTcg {
   public CardsBuilder cards() {
     return new CardsBuilder();
   }
+
   /**
    * Factory method for the {@link SetsBuilder} class.
    *
@@ -87,6 +96,7 @@ public class PkmnTcg {
     return getGenericData(SUB_PATH_SUB_TYPES);
 
   }
+
   /**
    * Get list of available Types.
    *
@@ -96,6 +106,7 @@ public class PkmnTcg {
       throws URISyntaxException, IOException, InterruptedException {
     return getGenericData(SUB_PATH_TYPES);
   }
+
   /**
    * Get list of available Rarities.
    *
@@ -106,32 +117,38 @@ public class PkmnTcg {
     return getGenericData(SUB_PATH_RARITIES);
   }
 
-  public static class CardsBuilder extends QueryBuilder implements ApiCall<CardsDto>{
+  private Optional<GenericDto> getGenericData(String data)
+      throws URISyntaxException, IOException, InterruptedException {
+    return Optional.of(
+        objectMapper.readValue(ApiCaller.executeRequest(data).body(), GenericDto.class));
+  }
+
+  public static class CardsBuilder extends QueryBuilder implements ApiCall<CardsDto> {
 
     private CardsBuilder() {
     }
 
-    protected CardsBuilder where(String query) {
+    public CardsBuilder where(String query) {
       addQuery(query);
       return this;
     }
 
-    protected CardsBuilder where(CardQueryOptions field, String value) {
+    public CardsBuilder where(CardQueryOptions field, String value) {
       addQuery(field.toString(), value);
       return this;
     }
 
-    protected CardsBuilder select(String value) {
+    public CardsBuilder select(String value) {
       addSelectField(value);
       return this;
     }
 
-    protected CardsBuilder page(int page) {
+    public CardsBuilder page(int page) {
       setPageParam(page);
       return this;
     }
 
-    protected CardsBuilder pageSize(int pageSize) {
+    public CardsBuilder pageSize(int pageSize) {
       super.setPageSizeParam(pageSize);
       return this;
     }
@@ -144,29 +161,31 @@ public class PkmnTcg {
   }
 
   public static class SetsBuilder extends QueryBuilder implements ApiCall<SetsDto> {
-    private SetsBuilder() {}
 
-    protected SetsBuilder where(SetQueryOptions field, String value) {
+    private SetsBuilder() {
+    }
+
+    public SetsBuilder where(SetQueryOptions field, String value) {
       addQuery(field.toString(), value);
       return this;
     }
 
-    protected SetsBuilder where(String query) {
+    public SetsBuilder where(String query) {
       addQuery(query);
       return this;
     }
 
-    protected SetsBuilder select(String value) {
+    public SetsBuilder select(String value) {
       addSelectField(value);
       return this;
     }
 
-    protected SetsBuilder page(int page) {
+    public SetsBuilder page(int page) {
       setPageParam(page);
       return this;
     }
 
-    protected SetsBuilder pageSize(int pageSize) {
+    public SetsBuilder pageSize(int pageSize) {
       setPageParam(pageSize);
       return this;
     }
@@ -176,11 +195,5 @@ public class PkmnTcg {
         throws URISyntaxException, IOException, InterruptedException {
       return Optional.of(objectMapper.readValue(query(SUB_PATH_SETS).body(), SetsDto.class));
     }
-  }
-
-  private Optional<GenericDto> getGenericData(String data)
-      throws URISyntaxException, IOException, InterruptedException {
-    return Optional.of(
-        objectMapper.readValue(ApiCaller.executeRequest(data).body(), GenericDto.class));
   }
 }

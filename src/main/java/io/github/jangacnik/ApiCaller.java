@@ -11,10 +11,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ApiCaller {
+
   private static final String BASE_URL = "https://api.pokemontcg.io/v2/";
   private static final Logger LOGGER = Logger.getLogger(ApiCaller.class.getName());
   protected static String apiKey;
-  private ApiCaller() {}
+
+  private ApiCaller() {
+  }
+
   public static HttpResponse<String> executeRequest(String query)
       throws URISyntaxException, IOException, InterruptedException {
     LOGGER.log(Level.INFO, "Executing API request: {0}", query);

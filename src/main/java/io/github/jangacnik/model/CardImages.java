@@ -13,6 +13,11 @@ public class CardImages {
     // default constructor
   }
 
+  public CardImages(String small, String large) {
+    this.small = small;
+    this.large = large;
+  }
+
   public String getSmall() {
     return small;
   }

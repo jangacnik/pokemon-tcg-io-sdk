@@ -1,6 +1,7 @@
 package io.github.jangacnik.model.dto;
 
 public class GenericResponse {
+
   private int page;
   private int pageSize;
   private int count;

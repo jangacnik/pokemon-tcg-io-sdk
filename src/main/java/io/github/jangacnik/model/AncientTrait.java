@@ -13,6 +13,11 @@ public class AncientTrait {
     // default constructor
   }
 
+  public AncientTrait(String name, String text) {
+    this.name = name;
+    this.text = text;
+  }
+
   public String getName() {
     return name;
   }

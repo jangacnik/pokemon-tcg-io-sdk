@@ -19,6 +19,14 @@ public class TcgPlayerPrice {
     // default constructor
   }
 
+  public TcgPlayerPrice(Double low, Double mid, Double high, Double market, Double directLow) {
+    this.low = low;
+    this.mid = mid;
+    this.high = high;
+    this.market = market;
+    this.directLow = directLow;
+  }
+
   public Double getLow() {
     return low;
   }

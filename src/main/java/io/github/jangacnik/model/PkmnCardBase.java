@@ -3,7 +3,7 @@ package io.github.jangacnik.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
-public class Card {
+public class PkmnCardBase {
 
   @JsonProperty
   private String id;
@@ -13,7 +13,6 @@ public class Card {
   private String level;
   @JsonProperty
   private String regulationMark;
-
   @JsonProperty
   private String supertype;
   @JsonProperty
@@ -43,8 +42,6 @@ public class Card {
   @JsonProperty
   private Integer convertedRetreatCost;
   @JsonProperty
-  private Set set;
-  @JsonProperty
   private String number;
   @JsonProperty
   private String artist;
@@ -58,13 +55,43 @@ public class Card {
   private Legalities legalities;
   @JsonProperty
   private CardImages images;
-  @JsonProperty
-  private TcgPlayer tcgplayer;
-  @JsonProperty
-  private CardMarket cardmarket;
 
-  public Card() {
-    // default constructor
+  public PkmnCardBase(String id, String name, String level, String regulationMark, String supertype,
+      List<String> subtypes, String hp, List<String> types, String evolvesFrom,
+      List<String> evolvesTo, List<String> rules, AncientTrait ancientTrait,
+      List<Ability> abilities,
+      List<Attack> attacks, List<Reaction> weaknesses, List<Reaction> resistances,
+      List<String> retreatCost, Integer convertedRetreatCost, String number, String artist,
+      String rarity, String flavorText, List<Integer> nationalPokedexNumbers, Legalities legalities,
+      CardImages images) {
+    this.id = id;
+    this.name = name;
+    this.level = level;
+    this.regulationMark = regulationMark;
+    this.supertype = supertype;
+    this.subtypes = subtypes;
+    this.hp = hp;
+    this.types = types;
+    this.evolvesFrom = evolvesFrom;
+    this.evolvesTo = evolvesTo;
+    this.rules = rules;
+    this.ancientTrait = ancientTrait;
+    this.abilities = abilities;
+    this.attacks = attacks;
+    this.weaknesses = weaknesses;
+    this.resistances = resistances;
+    this.retreatCost = retreatCost;
+    this.convertedRetreatCost = convertedRetreatCost;
+    this.number = number;
+    this.artist = artist;
+    this.rarity = rarity;
+    this.flavorText = flavorText;
+    this.nationalPokedexNumbers = nationalPokedexNumbers;
+    this.legalities = legalities;
+    this.images = images;
+  }
+
+  public PkmnCardBase() {
   }
 
   public String getId() {
@@ -195,14 +222,6 @@ public class Card {
     this.convertedRetreatCost = convertedRetreatCost;
   }
 
-  public Set getSet() {
-    return set;
-  }
-
-  public void setSet(Set set) {
-    this.set = set;
-  }
-
   public String getNumber() {
     return number;
   }
@@ -259,21 +278,6 @@ public class Card {
     this.images = images;
   }
 
-  public TcgPlayer getTcgplayer() {
-    return tcgplayer;
-  }
-
-  public void setTcgplayer(TcgPlayer tcgplayer) {
-    this.tcgplayer = tcgplayer;
-  }
-
-  public CardMarket getCardmarket() {
-    return cardmarket;
-  }
-
-  public void setCardmarket(CardMarket cardmarket) {
-    this.cardmarket = cardmarket;
-  }
 
   public String getLevel() {
     return level;
@@ -290,4 +294,5 @@ public class Card {
   public void setRegulationMark(String regulationMark) {
     this.regulationMark = regulationMark;
   }
+
 }

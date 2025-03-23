@@ -14,6 +14,11 @@ public class Reaction {
     // default constructor
   }
 
+  public Reaction(Type type, String value) {
+    this.type = type;
+    this.value = value;
+  }
+
   public Type getType() {
     return type;
   }

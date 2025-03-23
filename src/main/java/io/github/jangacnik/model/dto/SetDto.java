@@ -2,7 +2,9 @@ package io.github.jangacnik.model.dto;
 
 import io.github.jangacnik.model.Set;
 
-public class SetDto extends GenericResponse{
+public class SetDto extends GenericResponse {
+
+  private Set data;
 
   public Set getData() {
     return data;
@@ -11,6 +13,4 @@ public class SetDto extends GenericResponse{
   public void setData(Set data) {
     this.data = data;
   }
-
-  private Set data;
 }

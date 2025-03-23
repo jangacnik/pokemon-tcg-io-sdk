@@ -39,6 +39,27 @@ public class CardMarketPrices {
     // default constructor
   }
 
+  public CardMarketPrices(double averageSellPrice, double lowPrice, double trendPrice,
+      double germanProLow, double suggestedPrice, double reverseHoloSell, double reverseHoloLow,
+      double reverseHoloTrend, double lowPriceExPlus, double avg1, double avg7, double avg30,
+      double reverseHoloAvg1, double reverseHoloAvg7, double reverseHoloAvg30) {
+    this.averageSellPrice = averageSellPrice;
+    this.lowPrice = lowPrice;
+    this.trendPrice = trendPrice;
+    this.germanProLow = germanProLow;
+    this.suggestedPrice = suggestedPrice;
+    this.reverseHoloSell = reverseHoloSell;
+    this.reverseHoloLow = reverseHoloLow;
+    this.reverseHoloTrend = reverseHoloTrend;
+    this.lowPriceExPlus = lowPriceExPlus;
+    this.avg1 = avg1;
+    this.avg7 = avg7;
+    this.avg30 = avg30;
+    this.reverseHoloAvg1 = reverseHoloAvg1;
+    this.reverseHoloAvg7 = reverseHoloAvg7;
+    this.reverseHoloAvg30 = reverseHoloAvg30;
+  }
+
   public double getAverageSellPrice() {
     return averageSellPrice;
   }
